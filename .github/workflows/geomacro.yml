@@ -35,6 +35,10 @@ jobs:
         with:
           python-version: '3.10'
           cache: 'pip'
+          # IMPORTANTE: il nostro requirements ha un nome non standard,
+          # quindi va indicato esplicitamente per non far fallire il cache step
+          # (errore: "No file ... matched to **/requirements.txt or **/pyproject.toml").
+          cache-dependency-path: geomacro_requirements.txt
 
       - name: Install dependencies
         run: |
